@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.hawkdesk.migrationtool.controller.ExportWizardController"
+            styleClass="wizard-root">
+
+    <!-- Wizard header -->
+    <top>
+        <VBox styleClass="wizard-header" spacing="12">
+            <padding><Insets top="16" right="24" bottom="12" left="24"/></padding>
+            <Label text="Export Data" styleClass="wizard-title"/>
+            <HBox fx:id="stepIndicator" spacing="8" alignment="CENTER_LEFT">
+                <Label text="1" styleClass="step-dot"/>
+                <Label text="─" styleClass="step-separator"/>
+                <Label text="2" styleClass="step-dot"/>
+                <Label text="─" styleClass="step-separator"/>
+                <Label text="3" styleClass="step-dot"/>
+                <Label text="─" styleClass="step-separator"/>
+                <Label text="4" styleClass="step-dot"/>
+                <Label text="─" styleClass="step-separator"/>
+                <Label text="5" styleClass="step-dot"/>
+                <Label fx:id="lblStep" text="Step 1 of 5" styleClass="step-counter"/>
+            </HBox>
+            <Separator/>
+        </VBox>
+    </top>
+
+    <!-- Step content (swapped dynamically) -->
+    <center>
+        <StackPane fx:id="stepContainer" styleClass="wizard-content"/>
+    </center>
+
+    <!-- Navigation buttons -->
+    <bottom>
+        <HBox styleClass="wizard-footer" alignment="CENTER_RIGHT" spacing="12">
+            <padding><Insets top="12" right="24" bottom="12" left="24"/></padding>
+            <Separator orientation="HORIZONTAL"/>
+            <Button fx:id="btnBack" text="&lt; Back" onAction="#onBack"/>
+            <Button fx:id="btnNext" text="Next &gt;" onAction="#onNext" defaultButton="true" styleClass="primary-button"/>
+        </HBox>
+    </bottom>
+</BorderPane>

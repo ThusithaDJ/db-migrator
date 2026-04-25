@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.hawkdesk.migrationtool.controller.MainController"
+            styleClass="root-pane">
+
+    <top>
+        <HBox styleClass="app-header" alignment="CENTER_LEFT" spacing="16">
+            <padding><Insets top="12" right="20" bottom="12" left="20"/></padding>
+            <Label text="HawkDesk Migration Tool" styleClass="app-title"/>
+        </HBox>
+    </top>
+
+    <center>
+        <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE" styleClass="main-tab-pane">
+            <tabs>
+                <Tab fx:id="dashboardTab" text="Dashboard"/>
+                <Tab fx:id="settingsTab" text="Settings"/>
+            </tabs>
+        </TabPane>
+    </center>
+</BorderPane>

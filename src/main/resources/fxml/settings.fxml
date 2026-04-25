@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<HBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.hawkdesk.migrationtool.controller.SettingsController"
+      styleClass="content-pane" spacing="0">
+
+    <!-- Left panel: saved connections list -->
+    <VBox styleClass="settings-sidebar" prefWidth="260" spacing="12">
+        <padding><Insets top="20" right="16" bottom="20" left="16"/></padding>
+        <Label text="Saved Connections" styleClass="section-title"/>
+        <Separator/>
+        <ListView fx:id="connectionList" VBox.vgrow="ALWAYS" styleClass="connection-list"/>
+        <Button text="+ New Connection" onAction="#onNewConnection"
+                maxWidth="Infinity" styleClass="secondary-button"/>
+    </VBox>
+
+    <Separator orientation="VERTICAL"/>
+
+    <!-- Right panel: connection form -->
+    <ScrollPane fitToWidth="true" HBox.hgrow="ALWAYS" styleClass="settings-form-scroll">
+        <VBox spacing="16" styleClass="settings-form">
+            <padding><Insets top="24" right="32" bottom="24" left="32"/></padding>
+
+            <Label text="Connection Details" styleClass="section-title"/>
+            <Separator/>
+
+            <Label text="⚠ Passwords are stored with Base64 encoding only — not encrypted."
+                   styleClass="warning-banner" fx:id="passwordWarningLabel"/>
+
+            <GridPane hgap="16" vgap="12">
+                <columnConstraints>
+                    <ColumnConstraints prefWidth="140" minWidth="100"/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                </columnConstraints>
+
+                <Label text="Connection Name:" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="form-label"/>
+                <TextField fx:id="fieldName" GridPane.rowIndex="0" GridPane.columnIndex="1" promptText="e.g. Local MySQL Dev"/>
+
+                <Label text="Database Type:" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="form-label"/>
+                <ComboBox fx:id="fieldType" GridPane.rowIndex="1" GridPane.columnIndex="1" maxWidth="Infinity"/>
+
+                <Label text="Host:" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="form-label"/>
+                <TextField fx:id="fieldHost" GridPane.rowIndex="2" GridPane.columnIndex="1" promptText="localhost"/>
+
+                <Label text="Port:" GridPane.rowIndex="3" GridPane.columnIndex="0" styleClass="form-label"/>
+                <TextField fx:id="fieldPort" GridPane.rowIndex="3" GridPane.columnIndex="1" promptText="3306"/>
+
+                <Label text="Database Name:" GridPane.rowIndex="4" GridPane.columnIndex="0" styleClass="form-label"/>
+                <TextField fx:id="fieldDatabase" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                <Label text="Username:" GridPane.rowIndex="5" GridPane.columnIndex="0" styleClass="form-label"/>
+                <TextField fx:id="fieldUsername" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+                <Label text="Password:" GridPane.rowIndex="6" GridPane.columnIndex="0" styleClass="form-label"/>
+                <PasswordField fx:id="fieldPassword" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+            </GridPane>
+
+            <Label fx:id="statusLabel" wrapText="true"/>
+
+            <HBox spacing="12">
+                <Button text="Test Connection" onAction="#onTestConnection" styleClass="secondary-button"/>
+                <Button fx:id="btnSave" text="Save" onAction="#onSave" styleClass="primary-button"/>
+                <Button fx:id="btnDelete" text="Delete" onAction="#onDelete" styleClass="danger-button"/>
+            </HBox>
+        </VBox>
+    </ScrollPane>
+</HBox>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.hawkdesk.migrationtool.controller.DashboardController"
+            styleClass="content-pane">
+
+    <top>
+        <VBox spacing="24" styleClass="dashboard-hero">
+            <padding><Insets top="40" right="40" bottom="32" left="40"/></padding>
+            <Label text="What would you like to do?" styleClass="hero-title"/>
+            <HBox spacing="24">
+                <Button text="Export Data" onAction="#onExport"
+                        styleClass="hero-button, export-button"
+                        prefWidth="220" prefHeight="80"/>
+                <Button text="Import Data" onAction="#onImport"
+                        styleClass="hero-button, import-button"
+                        prefWidth="220" prefHeight="80"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="12" styleClass="activity-section">
+            <padding><Insets top="24" right="40" bottom="24" left="40"/></padding>
+            <Label text="Recent Activity" styleClass="section-title"/>
+            <Separator/>
+            <Label fx:id="noActivityLabel" text="No activity yet. Use Export or Import to get started."
+                   styleClass="empty-label" visible="true"/>
+            <TableView fx:id="activityTable" styleClass="activity-table"
+                       visible="false" prefHeight="200">
+                <columns>
+                    <TableColumn fx:id="colType" text="Type" prefWidth="80"/>
+                    <TableColumn fx:id="colTimestamp" text="Timestamp" prefWidth="160"/>
+                    <TableColumn fx:id="colStatus" text="Status" prefWidth="100"/>
+                    <TableColumn fx:id="colDescription" text="Description" prefWidth="400"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

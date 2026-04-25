@@ -1,0 +1,41 @@
+{
+  "exportedAt": "2025-04-23T10:30:00Z",
+  "exportedBy": "HawkDesk Migration Tool v1.0",
+  "tables": [
+    {
+      "tableName": "products",
+      "rowCount": 532,
+      "columns": [
+        { "name": "id",          "sqlType": "INT",           "nullable": false, "primaryKey": true  },
+        { "name": "sku",         "sqlType": "VARCHAR(50)",    "nullable": false, "primaryKey": false },
+        { "name": "name",        "sqlType": "VARCHAR(255)",   "nullable": false, "primaryKey": false },
+        { "name": "price",       "sqlType": "DECIMAL(10,2)",  "nullable": true,  "primaryKey": false },
+        { "name": "stock_qty",   "sqlType": "INT",            "nullable": true,  "primaryKey": false },
+        { "name": "is_active",   "sqlType": "BOOLEAN",        "nullable": false, "primaryKey": false },
+        { "name": "created_at",  "sqlType": "DATETIME",       "nullable": true,  "primaryKey": false }
+      ]
+    },
+    {
+      "tableName": "customers",
+      "rowCount": 214,
+      "columns": [
+        { "name": "id",           "sqlType": "INT",          "nullable": false, "primaryKey": true  },
+        { "name": "full_name",    "sqlType": "VARCHAR(200)",  "nullable": false, "primaryKey": false },
+        { "name": "email",        "sqlType": "VARCHAR(255)",  "nullable": true,  "primaryKey": false },
+        { "name": "phone",        "sqlType": "VARCHAR(30)",   "nullable": true,  "primaryKey": false },
+        { "name": "registered_at","sqlType": "DATETIME",      "nullable": true,  "primaryKey": false }
+      ]
+    },
+    {
+      "tableName": "orders",
+      "rowCount": 1087,
+      "columns": [
+        { "name": "id",            "sqlType": "INT",          "nullable": false, "primaryKey": true  },
+        { "name": "customer_id",   "sqlType": "INT",          "nullable": false, "primaryKey": false },
+        { "name": "total_amount",  "sqlType": "DECIMAL(12,2)","nullable": false, "primaryKey": false },
+        { "name": "status",        "sqlType": "VARCHAR(30)",   "nullable": false, "primaryKey": false },
+        { "name": "created_at",    "sqlType": "DATETIME",      "nullable": true,  "primaryKey": false }
+      ]
+    }
+  ]
+}
